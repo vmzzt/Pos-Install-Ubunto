@@ -11,6 +11,8 @@
 # sudo docker-compose up -d
 # instalar mongodb
 # instalar angular
+# tema dracula #code 
+# material icon #code
 # npm i - restaurar node-modules e etc
 
 
@@ -34,6 +36,12 @@ sudo apt install python3 python-pip wine docker docker-compose git build-essenti
 
 ## tema dark ##
 sudo apt install gnome-tweaks -y 
+
+## Dracula Terminal ##
+#sudo apt-get install dconf-cli 
+#git clone https://github.com/dracula/gnome-terminal
+#cd gnome-terminal
+#./install.sh
 
 
 ## download de programas externos ##
