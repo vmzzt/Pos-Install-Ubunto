@@ -62,6 +62,7 @@ sudo apt-get install -y nodejs # node JS
 sudo apt-get install -y build-essential #Bibliotecas essenciais NodeJS
 sudo snap install spotify  # spotfy
 sudo apt install steam -y # Steam
+sudo snap install insomnia # Insomnia
 
 
 ## Adicionando repositório Flathub ##
