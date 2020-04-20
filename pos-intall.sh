@@ -1,97 +1,101 @@
 #!/bin/bash
 
+### abaixo plugins de auxilio  https://extensions.gnome.org/  ###
+   ## Unite 
+   ## User Themes
+   ## Multi Monitors Add-On
+   ## Sound Input & Output Device Chooser
 
-## abaixo plugins de auxilio ##
-
-# intalar Multi Monitors Add-On:
-# intstalar Sound Input & Output Device Chooser
-
-
-## anotacoes ##
-# sudo docker-compose up -d
-# instalar mongodb
-# instalar angular
-# tema dracula #code 
-# material icon #code
-# npm i - restaurar node-modules e etc
+### anotacoes ###
+   ## tema dracula #VScode 
+   ## material icon #VScode
 
 
-## atualizando e removendo as travas eventuais ##
+### atualizando e removendo as travas eventuais ###
 sudo apt update
 sudo apt upgrade -y 
 sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/chache/apt/archives/lock;
 
+### remover snaps nao usados ###
+sudo snap remove gnome-system-monitor gnome-calculator gnome-characters gnome-logs && sudo apt install gnome-system-monitor gnome-calculator gnome-characters gnome-logs -y
 
-## remover snaps nao usados ##
-sudo snap remove gnome-system-monitor gnome-calculator gnome-characters gnome-logs && sudo apt install gnome-system-monitor gnome-calculator gnome-characters gnome-logs -y # tirar itens nao utilizados 
+### Instalando pacotes e programas do repositório deb do Ubuntu ###
+sudo apt install curl
+sudo apt-add-repository ppa:graphics-drivers/ppa -y
+sudo apt install ubunto-restricted-extras -y
+sudo apt install virtualbox -y
+sudo apt install python3 wine docker docker-compose git libssl-dev flatpak gnome-software-plugin-flatpak -y
 
-
-## Instalando pacotes e programas do repositório deb do Ubuntu 
-sudo apt-add-repository ppa:graphics-drivers/ppa -y # Drivers adicionais Nvidia
-sudo apt install ubunto-restricted-extras -y # biblioteca  
-sudo apt install virtualbox -y # virtual box
-sudo apt install python3 python-pip wine docker docker-compose git build-essential libssl-dev flatpak gnome-software-plugin-flatpak -y   ## docker, GitHub, bibliotecas, flatpack e python 
-# sudo apt install nautilus-dropbox -y    ## descomentar para utiizar
-
-
-## tema dark ##
+### tema ###
 sudo apt install gnome-tweaks -y 
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install zsh
+### dps ### 
+    ## nano ~/.zshrc
+    ## ZSH_THEME="af-magic"
 
-## Dracula Terminal ##
-#sudo apt-get install dconf-cli 
-#git clone https://github.com/dracula/gnome-terminal
-#cd gnome-terminal
-#./install.sh
-
-
-## download de programas externos ##
-mkdir /home/$USER/Git  ## Pasta para repositorio GitHub 
- #cd /home/$USER/Git/
- #git clone *informe caminho github*
+### download de programas externos ###
 mkdir /home/$USER/Downloads/Programas
 cd /home/$USER/Downloads/Programas
-wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb # Google Chrome
+wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i *.deb
 
+### Intalando Snaps ###
+sudo snap install slack --classic
+sudo snap install code --classic 
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -y
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+sudo apt-get update && sudo apt-get install yarn
+sudo apt-get install --no-install-recommends yarn
+sudo snap install spotify
+sudo apt install steam -y
+sudo snap install remmina 
+sudo snap install postman
+sudo snap install insomnia
+sudo apt install stacer -y
 
-## Intalando Snaps ##
-sudo snap install slack --classic  #Slack 
-sudo snap install code --classic  # Visual Studio Code 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -  #Node js V12
-sudo apt-get install -y nodejs # node JS
-sudo apt-get install -y build-essential #Bibliotecas essenciais NodeJS
-sudo snap install spotify  # spotfy
-sudo apt install steam -y # Steam
-sudo snap install insomnia # Insomnia
-
-
-## Adicionando repositório Flathub ##
+### Adicionando repositório Flathub ###
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
 
+### Instalando Apps do Flathub ###
+sudo flatpak install flathub com.discordapp.Discord -y
+sudo flatpak install flathub org.gabmus.hydrapaper -y
+sudo flatpak install flathub io.github.celluloid_player.Celluloid -y
 
-## Instalando Apps do Flathub ## 
-sudo flatpak install flathub com.sublimetext.three -y  #Sublime Text
-sudo flatpak install flathub com.discordapp.Discord -y #Discord 
-sudo flatpak install flathub org.gabmus.hydrapaper -y #Programa para papel de parede
-
-
-## lutris e wine ##
-sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt update && sudo apt-get install lutris -y #Lutris 
+### lutris e wine ###
+sudo add-apt-repository ppa:lutris-team/lutris -y && sudo apt update && sudo apt-get install lutris -y
 sudo dpkg --add-architecture i386 
-sudo apt install wine wine64 -y #Wine 
+sudo apt install wine wine64 -y
 
+### aplicativos de sessao e otimizacao ###
+sudo sed-i "s/NoDisplay=true/NoDisplay=false/g" /etc/xdg/autostart/*.desktop
+    ## abra o manager applicaton e limpe o que nao utilizar
+    ## Armazenador do Tracker
+    ## Bem-vindo
+    ## Definições iniciais
+    ## gnome-disk-utility notification plugin for GNOME Settings Daemon
+    ## GNOME Initial Setup Copy Worker
+    ## GNOME Programas
+    ## GNOME Settings Daemon's print-notifications plugin
+    ## GNOME Settings Daemon's screensaver-proxy plugin
+    ## GNOME Settings Daemon's sharing plugin
+    ## GNOME Settings Daemon's smartcard plugin
+    ## GNOME Settings Daemon's wacom plugin
+    ## update-notifier
+    ## Orca screen reader
+    ## Snap user application autostart helper
+    ## Tracker File System Miner
+    ## Tracker Metadata Extractor
+    ## Ubuntu report try to sends metrics data on release upgrade
 
-
-## Atualização do sistema ##
+##### Atualização do sistema ###
 sudo apt update 
 sudo apt dist-upgrade -y 
 sudo apt autoclean -y 
 sudo apt autoremove -y 
 
-
-## Fim do Script ##
+### Fim do Script ###
 echo "Finalizado"
 
-
-
-## created by Vitor Mazzotini
+### created by Vitor Mazzotini ###
