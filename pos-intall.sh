@@ -5,54 +5,59 @@
    ## User Themes
    ## Multi Monitors Add-On
    ## Sound Input & Output Device Chooser
+   ## Dash to Dock
+   ## vitals
+### criar pasta .themes e colcoar o Mojave-dark
 
 ### anotacoes ###
    ## tema dracula #VScode 
    ## material icon #VScode
-
 
 ### atualizando e removendo as travas eventuais ###
 sudo apt update
 sudo apt upgrade -y 
 sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/chache/apt/archives/lock;
 
-### remover snaps nao usados ###
+### Ajustes do sistema ###
 sudo snap remove gnome-system-monitor gnome-calculator gnome-characters gnome-logs && sudo apt install gnome-system-monitor gnome-calculator gnome-characters gnome-logs -y
-
-### Instalando pacotes e programas do repositório deb do Ubuntu ###
-sudo apt install curl
 sudo apt-add-repository ppa:graphics-drivers/ppa -y
+sudo apt remove gnome-online-accounts -y
+sudo apt purge ubuntu-software gnome-software -y
+sudo apt purge cups unattended-upgrades -y
 sudo apt install ubunto-restricted-extras -y
-sudo apt install virtualbox -y
-sudo apt install python3 wine docker docker-compose git libssl-dev flatpak gnome-software-plugin-flatpak -y
+sudo apt install gnome-session -y
 
 ### tema ###
 sudo apt install gnome-tweaks -y 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sudo apt install zsh
+# sudo apt install zsh
+# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ### dps ### 
     ## nano ~/.zshrc
     ## ZSH_THEME="af-magic"
 
+### Instalando programas ###
+sudo apt install curl
+sudo apt install python3 wine docker docker-compose git libssl-dev flatpak gnome-software-plugin-flatpak -y
+sudo apt install virtualbox -y
+
 ### download de programas externos ###
-mkdir /home/$USER/Downloads/Programas
-cd /home/$USER/Downloads/Programas
 wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i *.deb
 
+
 ### Intalando Snaps ###
-sudo snap install slack --classic
+# sudo snap install slack --classic
 sudo snap install code --classic 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -y
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt-get install -y build-essential
-sudo apt-get update && sudo apt-get install yarn
+sudo apt-get update && sudo apt-get install yarn -y
 sudo apt-get install --no-install-recommends yarn
 sudo snap install spotify
 sudo apt install steam -y
 sudo snap install remmina 
 sudo snap install postman
-sudo snap install insomnia
+#sudo snap install insomnia
 sudo apt install stacer -y
 
 ### Adicionando repositório Flathub ###
@@ -69,7 +74,7 @@ sudo dpkg --add-architecture i386
 sudo apt install wine wine64 -y
 
 ### aplicativos de sessao e otimizacao ###
-sudo sed-i "s/NoDisplay=true/NoDisplay=false/g" /etc/xdg/autostart/*.desktop
+sudo sed -i "s/NoDisplay=true/NoDisplay=false/g" /etc/xdg/autostart/*.desktop
     ## abra o manager applicaton e limpe o que nao utilizar
     ## Armazenador do Tracker
     ## Bem-vindo
@@ -88,6 +93,12 @@ sudo sed-i "s/NoDisplay=true/NoDisplay=false/g" /etc/xdg/autostart/*.desktop
     ## Tracker File System Miner
     ## Tracker Metadata Extractor
     ## Ubuntu report try to sends metrics data on release upgrade
+    
+# sudo nano /etc/sysctl.d/99-sysctl.conf
+	## colocar as infos abaixo nas ultimas 2 linhas
+	## vm.swappiness=5
+	## vm.vfs_cache_pressure=50
+
 
 ##### Atualização do sistema ###
 sudo apt update 
